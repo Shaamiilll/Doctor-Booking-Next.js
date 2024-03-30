@@ -1,5 +1,6 @@
 import { Button } from '@/components/ui/button'
 import Image from 'next/image'
+import Link from 'next/link'
 import React from 'react'
 
 function Header() {
@@ -12,11 +13,11 @@ function Header() {
         {
             id: 2,
             name: "Explore",
-            path: "/"
+            path: "/explore"
         }, {
             id: 3,
             name: "Contact us",
-            path: "/"
+            path: "/contactus"
         },
     ]
     return (
@@ -27,7 +28,9 @@ function Header() {
                 />
                 <ul className='md:flex gap-8 '>
                     {Menu.map((value, index) => (
-                        <li>{value.name}</li>
+                       <Link href={value.path}>
+                        <li className='hover:text-primary cursor-pointer hover:scale-105 transition-all ease-in-out'>{value.name}</li>
+                       </Link>
                     ))}
                 </ul>
             </div>
